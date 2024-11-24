@@ -5,11 +5,9 @@ public class Primes {
 
     private Boolean primeArray[];
     private int maxN;
-    private Map<Integer, Integer> primeFactorsMap;
 
     public Primes(){
         this.maxN=0;
-        this.primeFactorsMap = new HashMap<>();
     }
 
     private void evaluatePrimeArray(int n){
@@ -70,16 +68,16 @@ public class Primes {
         if (n>maxN){
             this.evaluatePrimeArray(n);
         }
-        this.primeFactorsMap.clear();
+        Map<Integer, Integer> primeFactorsMap =new HashMap<Integer, Integer>();
 
         for (int i=2; i<=n; i++){
             if (primeArray[i]){
                 if (n%i == 0){
-                    if (this.primeFactorsMap.containsKey(i)){
-                        this.primeFactorsMap.put(i, this.primeFactorsMap.get(i) + 1);
+                    if (primeFactorsMap.containsKey(i)){
+                        primeFactorsMap.put(i, primeFactorsMap.get(i) + 1);
                     }
                     else {
-                        this.primeFactorsMap.put(i, 1);
+                        primeFactorsMap.put(i, 1);
                     }
                     n = n / i;
                     i--;
@@ -87,6 +85,6 @@ public class Primes {
             }
         }
 
-        return this.primeFactorsMap;
+        return primeFactorsMap;
     }
 }
