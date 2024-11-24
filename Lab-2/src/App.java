@@ -1,17 +1,21 @@
+import java.util.Map;
+
 public class App {
-    public static int computeGCD(int a ,int b){
-        if(b==0) return a;
-        else{
-        return computeGCD(b, a%b);
-        }
-     }
-     public static int computeLCM(int a ,int b){
-         int gcd=computeGCD(a, b);
-         int lcm=gcd*(a/gcd)*(b/gcd);
-         return lcm;
-      }
- 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        int n = 7561;
+        Primes primes = new Primes();
+        System.out.println("is " + n + " prime? " + primes.isPrime(n));
+        Map<Integer, Integer> map = primes.getPrimeFactors(n);
+        for (Integer key : map.keySet()) {
+            System.out.println("Key: " + key + " Power: " + map.get(key));
+        }
+
+        // Boolean arr[] = primes.getPrimeArray();
+        // for (int i=0; i<arr.length; i++){
+        //     if (arr[i]){
+        //         System.out.println(i + "");
+        //     }
+        // }
     }
 }
