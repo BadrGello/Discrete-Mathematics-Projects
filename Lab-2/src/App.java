@@ -34,6 +34,10 @@ public class App {
         }
     }
     public static int computeLCMByPrime(int a ,int b){
+        if(a==0||b==0){
+            return 0;
+        }
+        else {
         int lcm=1;
             Primes x=new Primes();
             Map<Integer,Integer> ap=x.getPrimeFactors(a);
@@ -51,9 +55,10 @@ public class App {
             lcm *=Math.pow(i, bp.get(i));
         }
         return lcm;
+    }
     }  
     public static void main(String[] args) throws Exception {
-        System.out.println(computeLCMByPrime(12, 15));
+        System.out.println(computeLCMByPrime(12, 0));
         int n = 7561;
         Primes primes = new Primes();
         System.out.println("is " + n + " prime? " + primes.isPrime(n));
