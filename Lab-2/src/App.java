@@ -56,16 +56,64 @@ public class App {
         }
         return lcm;
     }
-    }  
-    public static void main(String[] args) throws Exception {
-        System.out.println(computeLCMByPrime(12, 0));
-        int n = 7561;
-        Primes primes = new Primes();
-        System.out.println("is " + n + " prime? " + primes.isPrime(n));
-        Map<Integer, Integer> map = primes.getPrimeFactors(n);
-        for (Integer key : map.keySet()) {
-            System.out.println("Key: " + key + " Power: " + map.get(key));
+    }
+    public static void test(int A,int B) {
+        System.out.println("n1: "+A+"    n2: "+B+"   lcmByprimefactors: "+computeLCMByPrime(A, B)+"  gcdByprimefactors: "+computeGCDByPrime(A, B)+"  lcmByeuclidean: "+computeLCM(A, B)+"    gcdByeuclidean: "+computeGCD(A, B));
+    } 
+
+    public static void primeTest(int A){
+        Primes x=new Primes();
+        Map<Integer,Integer> Ap=x.getPrimeFactors(A);
+        String s="";
+        for(Integer i:Ap.keySet()){
+            int n=Ap.get(i);
+            if(n!=1) s+=(i+"^"+Ap.get(i)+"*");
+            else s+=(i+"*");
         }
+        s=s.substring(0, s.length() - 1);
+        System.out.println("n: "+A+"    prime factorization: "+s);
+    }
+    public static void primeCheckerTest(int A) {
+        Primes x=new Primes();
+        System.out.println("n: "+A+"    is prime: "+x.isPrime(A));
+    }
+    public static void main(String[] args) throws Exception {
+        System.out.println("is prime test cases:");
+        System.out.println();
+        primeCheckerTest(2);
+        primeCheckerTest(4);
+        primeCheckerTest(97);
+        primeCheckerTest(100);
+        primeCheckerTest(1);
+        primeCheckerTest(13);
+        primeCheckerTest(9);
+        primeCheckerTest(143);
+        primeCheckerTest(6);
+        System.out.println();
+        System.out.println("prime factorization test cases:");
+        System.out.println();
+        primeTest(12);
+        primeTest(6);
+        primeTest(13);
+        primeTest(8);
+        primeTest(30);
+        primeTest(100);
+        primeTest(97);
+        primeTest(120);
+        primeTest(143);
+        System.out.println();
+        System.out.println("GCD and LCM test cases:");
+        System.out.println();
+        test(12, 0);
+        test(12, 18);
+        test(5, 20);
+        test(7, 13);
+        test(0, 25);
+        test(8, 8);
+        test(450, 600);
+        test(14, 15);
+
+        
 
 
         // Boolean arr[] = primes.getPrimeArray();
