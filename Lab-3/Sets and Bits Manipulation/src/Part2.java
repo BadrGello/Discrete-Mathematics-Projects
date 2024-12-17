@@ -10,30 +10,6 @@ public class Part2 {
 
     public static void main(String[] args) throws Exception {
 
-        
-        // ArrayList<String> universe = new ArrayList<String>(Arrays.asList("apple", "apple", "apple", "banana", "green", "red", "bird", "car"));
-        // Set sets = new Set(universe);
-        // sets.getUniverse();
-        // sets.addToSet("1", "apple"); 
-        // sets.addToSet("1", "green");
-        // sets.addToSet("1", "bird");
-        // sets.addToSet("1", "car");
-
-        // sets.addToSet("2", "apple");
-        // sets.addToSet("2", "banana");
-        // sets.addToSet("2", "red");
-
-        // sets.addToSet("3", "banana");
-        // sets.addToSet("3", "car");
-        // sets.addToSet("3", "apple");
-        // sets.addToSet("3", "bird");
-
-        // System.out.println("Union: " + sets.union("1", "3"));
-        // System.out.println("Intersection: " + sets.intersection("1", "3"));
-        // System.out.println("Difference: " + sets.difference("1", "3"));
-        // System.out.println("Complement: " + sets.complement("1") + ", Cardinality: " + sets.cardinality("1"));
-        // System.out.println("Complement: " + sets.complement("2") + ", Cardinality: " + sets.cardinality("2"));
-        // System.out.println("Complement: " + sets.complement("3") + ", Cardinality: " + sets.cardinality("3"));
 
         ArrayList<String> universeList = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
@@ -120,10 +96,14 @@ public class Part2 {
                                 );
 
                 int error =  0;
-                // Removes all spaces in each string
+                
                 for (int j=0; j<setList.size(); j++){
+                    // Removes all spaces in each string
                     setList.set(j, setList.get(j).replaceAll("\\s", ""));
-                    if (universeList.indexOf(setList.get(j)) == -1){
+                    
+                    // Checks if any element in the current entered set is not in the universe
+                    // if (universeList.indexOf(setList.get(j)) == -1){
+                    if( ! sets.isInUniverse(setList.get(i))){
                         clearConsole();
                         System.out.println("Enter elements that exist in the universe");
                         i--;
@@ -136,6 +116,7 @@ public class Part2 {
                 if (error == 1){
                     continue;
                 }
+                
                 clearConsole();
                 System.out.println("" + setList);
                 
@@ -225,11 +206,11 @@ public class Part2 {
             clearConsole();
 
             if (operationInt == 0){
-
+                // exit program
                 break;
             }
 
-            //
+            // 2 sets operations
             if (operationInt == 1 || operationInt == 2 || operationInt == 4){
                 if (numSubSets == 1){
                     clearConsole();
@@ -296,6 +277,7 @@ public class Part2 {
                             
             }
 
+            // 1 set operations
             else{
 
                 while (true) {
