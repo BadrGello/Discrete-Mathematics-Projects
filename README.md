@@ -1,9 +1,15 @@
-Lab 1: 
+### Lab 1: 
 
- - Logical Expression Evaluator
- - Inference Engine
+ - Logical expression evaluator
+ - Inference engine
  
-Lab 2: 
- - Prime Number Checker (Sieve of Eratosthenes)
- - Prime Factorization
- - GCD and LCM Computation
+### Lab 2: 
+
+ - Prime number nhecker (Sieve of Eratosthenes)
+ - Prime factorization
+ - GCD and LCM computation
+
+### Lab 3
+
+ - Basic bits operations
+ - Sets operations using bits maniplulation
