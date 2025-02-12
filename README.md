@@ -13,3 +13,5 @@
 
  - Basic bits operations
  - Sets operations using bits maniplulation
+
+All labs are terminal-based, no GUI.
